@@ -31,10 +31,59 @@ void traverseBackward(struct Node * tail){
     printf("\nTraversal Successful!\n\n");
 }
 
+struct Node * insertAtFirst(struct Node * head, int val){
+    struct Node * ptr = (struct Node *)malloc(sizeof(struct Node));
+    ptr -> data = val;
+    ptr -> next = head;
+    ptr -> prev = NULL;
+    head = ptr;
+    printf("\nInsertion Successful!\n\n");
+    return head;
+}
+
+struct Node * insertAtIndex(struct Node * head, int val, int index){
+    struct Node * ptr = (struct Node *)malloc(sizeof(struct Node));
+    struct Node * p = head;
+    int i = 0;
+    while(i != index-1){
+        p = p -> next;
+        i+=1;
+    }
+    ptr -> data = val;
+    ptr -> next = p -> next;
+    p -> next = ptr;
+    ptr -> prev = p;
+    (p -> next) -> prev = ptr;
+    printf("\nInsertion Successful!\n\n");
+    return head;
+}
+
+struct Node * insertAtEnd(struct Node * tail, int val){
+    struct Node * ptr = (struct Node *)malloc(sizeof(struct Node));
+    ptr -> data = val;
+    ptr -> prev = tail;
+    tail -> next = ptr;
+    ptr -> next = NULL;
+    tail = ptr;
+    printf("\nInsertion Successful!\n\n");
+    return tail;
+}
+
+struct Node * insertAfterNode(struct Node * head, struct Node * node, int val){
+    struct Node * ptr = (struct Node *)malloc(sizeof(struct Node));
+    ptr -> data = val;
+    ptr -> prev = node;
+    ptr -> next = node -> next;
+    node -> next = ptr;
+    (node -> next) -> prev = ptr;
+    node = ptr;
+    printf("\nInsertion Successful!\n\n");
+    return head;
+}
 
 int main(){
     //This is a simple demonstration of doubly linked list with 4 elements.
-    int choice;
+    int choice, val, index;
     struct Node * head;
     struct Node * tail;
     // Declare and Allocate memory for nodes in the linked list in Heap.
@@ -68,6 +117,38 @@ int main(){
             }
             else if (choice == 1){
                 traverseBackward(tail);
+            }
+        }
+
+        else if(choice == 1){
+            printf("\nInsertion\n\n");
+            printf("Enter 0 to insert an element at the beginning.\nEnter 1 to insert an element at a given index.\nEnter 2 to insert an element at the end.\nEnter 3 to insert an element after a particular node.\nEnter your choice: ");
+            scanf("%d",&choice);
+            if(choice == 0){
+                printf("Insertion at the Beginning\n\nEnter the value to insert: ");
+                scanf("%d", &val);
+                head = insertAtFirst(head, val);
+                traverseForward(head);
+            }
+            else if(choice == 1){
+                printf("Insertion at a given Index\n\nEnter the value to insert: ");
+                scanf("%d", &val);
+                printf("Enter the index to insert: ");
+                scanf("%d", &index);
+                head = insertAtIndex(head, val, index);
+                traverseForward(head);
+            }
+            else if(choice == 2){
+                printf("Insertion at the End\n\nEnter the value to insert: ");
+                scanf("%d", &val);
+                tail = insertAtEnd(tail, val);
+                traverseForward(head);
+            }
+            else if (choice == 3){
+                printf("Insertion after a specific Node\n\nEnter the value to insert: ");
+                scanf("%d", &val);
+                head = insertAfterNode(head, N2, val);
+                traverseForward(head);
             }
         }
     }
