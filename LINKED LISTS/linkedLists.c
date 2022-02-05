@@ -11,7 +11,7 @@ void traverse(struct Node * ptr){
     printf("The elements of the Linked list are:\n");
     while (ptr != NULL)
     {
-        printf("Element: %d\n", ptr -> data);
+        printf("%d\n", ptr -> data);
         ptr = ptr -> next;
     }
     printf("\nTraversal Successful!");

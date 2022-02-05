@@ -10,10 +10,10 @@ void traverse(struct Node * head){
     //Time complexity of Traversal is O(n).
     struct Node * ptr = head;
     printf("The elements of the Linked list are:\n");
-    printf("Element: %d\n", ptr -> data);
+    printf("%d\n", ptr -> data);
     ptr = ptr -> next;
     while (ptr != head){
-        printf("Element: %d\n", ptr -> data);
+        printf("%d\n", ptr -> data);
         ptr = ptr -> next;
     }
     //Another approach to Circular linked traversal is by using do while loop.
