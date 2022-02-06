@@ -248,4 +248,5 @@ int main(){
             printf("\nInvalid input\n");
         }
     }
+    return 0;
 }
