@@ -221,11 +221,12 @@ int main(){
                 head = deleteAtIndex(head,index);
                 traverse(head);
             }
-            if(choice == 2){
+            else if(choice == 2){
+                printf("\nDeletion of last node\n\n");
                 head = deleteLast(head);
                 traverse(head);
             }
-            if(choice == 3){
+            else if(choice == 3){
                 printf("\nDeletion by Value\n\nEnter the value to delete: ");
                 scanf("%d", &val);
                 head = deleteByValue(head,val);
