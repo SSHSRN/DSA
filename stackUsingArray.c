@@ -44,8 +44,8 @@ int main(){
     s1 -> arr = (int *) malloc (s1 -> size * sizeof(int));
 
     // Pushing an element manually.
-    s1 -> arr[0] = 5;
-    s1 -> top++;
+    // s1 -> arr[0] = 5;
+    // s1 -> top++;
 
     // Check if stack is empty.
     if(isEmpty(s1)){
@@ -53,6 +53,14 @@ int main(){
     }
     else{
         printf("\nStack is not Empty!\n\n");
+    }
+
+    // Check if stack is full.
+    if(isFull(s1)){
+        printf("\nStack is Full!\n\n");
+    }
+    else{
+        printf("\nStack is not Full!\n\n");
     }
     return 0;
 }
