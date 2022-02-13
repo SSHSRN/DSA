@@ -148,67 +148,77 @@ int main(){
     third -> data = 22;
     third -> next = NULL;
 
-    printf("Linked list operations.\nEnter 0 to Traverse the Linked list.\nEnter 1 to Insert an element.\nEnter 2 to Delete an element.\nEnter your choice: ");
-    scanf("%d",&choice);
-    if(choice == 0){
-        printf("\nTraversal\n\n");
-        traverse(head);
-    }
-    else if(choice ==1){
-        printf("\nInsertion\n\n");
-        printf("Enter 0 to insert an element at the beginning.\nEnter 1 to insert an element at a given index.\nEnter 2 to insert an element at the end.\nEnter 3 to insert an element after a particular node.\nEnter your choice: ");
+    while(1){
+        printf("Linked list operations.\nEnter 0 to Traverse the Linked list.\nEnter 1 to Insert an element.\nEnter 2 to Delete an element.\nEnter 3 to exit.\nEnter your choice: ");
         scanf("%d",&choice);
         if(choice == 0){
-            printf("Insertion at the Beginning\n\nEnter the value to insert: ");
-            scanf("%d", &val);
-            head = insertAtFirst(head, val);
-            traverse(head);
-        }
-        else if(choice == 1){
-            printf("Insertion at a given Index\n\nEnter the value to insert: ");
-            scanf("%d", &val);
-            printf("Enter the index to insert: ");
-            scanf("%d", &index);
-            head = insertAtIndex(head, val, index);
-            traverse(head);
-        }
-        else if(choice == 2){
-            printf("Insertion at the End\n\nEnter the value to insert: ");
-            scanf("%d", &val);
-            head = insertAtEnd(head, val);
-            traverse(head);
-        }
-        else if(choice == 3){
-            printf("Insertion after a specific Node\n\nEnter the value to insert: ");
-            scanf("%d", &val);
-            head = insertAfterNode(head, second, val);
-            traverse(head);
-        }
-    }
-    else if(choice ==2){
-        printf("\nDeletion\n\n");
-        printf("Enter 0 to delete the first node.\nEnter 1 to delete the node at a given index.\nEnter 2 to delete the last node.\nEnter 3 to delete a node by value.\nEnter your choice: ");
-        scanf("%d",&choice);
-        if(choice == 0){
-            printf("\nDeletion of first node\n\n");
-            head = deleteFirst(head);
+            printf("\nTraversal\n\n");
             traverse(head);
         }
         else if(choice ==1){
-            printf("\nDeletion at a given Index\n\nEnter the index to delete: ");
-            scanf("%d", &index);
-            head = deleteAtIndex(head,index);
-            traverse(head);
+            printf("\nInsertion\n\n");
+            printf("Enter 0 to insert an element at the beginning.\nEnter 1 to insert an element at a given index.\nEnter 2 to insert an element at the end.\nEnter 3 to insert an element after a particular node.\nEnter your choice: ");
+            scanf("%d",&choice);
+            if(choice == 0){
+                printf("Insertion at the Beginning\n\nEnter the value to insert: ");
+                scanf("%d", &val);
+                head = insertAtFirst(head, val);
+                traverse(head);
+            }
+            else if(choice == 1){
+                printf("Insertion at a given Index\n\nEnter the value to insert: ");
+                scanf("%d", &val);
+                printf("Enter the index to insert: ");
+                scanf("%d", &index);
+                head = insertAtIndex(head, val, index);
+                traverse(head);
+            }
+            else if(choice == 2){
+                printf("Insertion at the End\n\nEnter the value to insert: ");
+                scanf("%d", &val);
+                head = insertAtEnd(head, val);
+                traverse(head);
+            }
+            else if(choice == 3){
+                printf("Insertion after a specific Node\n\nEnter the value to insert: ");
+                scanf("%d", &val);
+                head = insertAfterNode(head, second, val);
+                traverse(head);
+            }
         }
-        if(choice == 2){
-            head = deleteLast(head);
-            traverse(head);
+        else if(choice ==2){
+            printf("\nDeletion\n\n");
+            printf("Enter 0 to delete the first node.\nEnter 1 to delete the node at a given index.\nEnter 2 to delete the last node.\nEnter 3 to delete a node by value.\nEnter your choice: ");
+            scanf("%d",&choice);
+            if(choice == 0){
+                printf("\nDeletion of first node\n\n");
+                head = deleteFirst(head);
+                traverse(head);
+            }
+            else if(choice ==1){
+                printf("\nDeletion at a given Index\n\nEnter the index to delete: ");
+                scanf("%d", &index);
+                head = deleteAtIndex(head,index);
+                traverse(head);
+            }
+            if(choice == 2){
+                head = deleteLast(head);
+                traverse(head);
+            }
+            if(choice == 3){
+                printf("\nDeletion by Value\n\nEnter the value to delete: ");
+                scanf("%d", &val);
+                head = deleteByValue(head,val);
+                traverse(head);
+            }
         }
-        if(choice == 3){
-            printf("\nDeletion by Value\n\nEnter the value to delete: ");
-            scanf("%d", &val);
-            head = deleteByValue(head,val);
-            traverse(head);
+
+        else if(choice == 3){
+            break;
+        }
+
+        else{
+            printf("\nInvalid input\n");
         }
     }
     return 0;
