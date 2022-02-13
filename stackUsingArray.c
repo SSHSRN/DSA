@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+// Stacck works by LIFO (Last In First Out) principle...
+
 struct stack{
     int size;
     int top;
@@ -33,7 +35,7 @@ void traverse(struct stack * ptr){
 
 void push(struct stack * ptr, int val){
     if(isFull(ptr)){
-        printf("Stack Overflow! Cannot push %d to the stack.\n", val);
+        printf("Stack Overflow! Cannot push %d to the stack.\n\n", val);
     }
     else{
         ptr -> top++;
@@ -41,14 +43,13 @@ void push(struct stack * ptr, int val){
     }
 }
 
-int pop(struct stack * ptr){
+void pop(struct stack * ptr){
     if(isEmpty(ptr)){
-        printf("Stack UnderFlow!\n");
+        printf("Stack UnderFlow! Cannot pop from the stack.\n\n");
     }
     else{
         ptr -> top--;
     }
-    return ptr -> top;
 }
 
 int main(){
@@ -81,37 +82,33 @@ int main(){
     s1 -> top++;
     s1 -> arr[4] = 25;
     s1 -> top++;
-    
-    printf("Stack operations.\nEnter 0 to Traverse the Stack.\nEnter 1 to Push an element.\nEnter 2 to Pop an element.\nEnter your choice: ");
-    scanf("%d",&choice);
-    if(choice ==0){
-        printf("\nTraversal\n\n");
-        traverse(s1);
+
+    while(1){
+        printf("Stack operations.\nEnter 0 to Traverse the Stack.\nEnter 1 to Push an element.\nEnter 2 to Pop an element.\nEnter your choice: ");
+        scanf("%d",&choice);
+        if(choice ==0){
+            printf("\nTraversal\n\n");
+            traverse(s1);
+        }
+
+        else if(choice == 1){
+            printf("\nPush\n\nEnter the value to insert:");
+            scanf("%d", &val);
+            push(s1, val);
+            traverse(s1);
+        }
+
+        else if(choice == 2){
+            printf("\nPop\n\n");
+            pop(s1);
+            traverse(s1);
+        }
+        else if(choice == 3){
+            break;
+        }
+        else{
+            printf("\nInvalid input\n");
+        }
     }
-
-    else if(choice == 1){
-        printf("\nInsertion\n\nEnter the value to insert:");
-        scanf("%d", &val);
-        push(s1, val);
-        traverse(s1);
-    }
-
-    // // Check if stack is empty.
-    // if(isEmpty(s1)){
-    //     printf("\nStack is Empty!\n\n");
-    // }
-    // else{
-    //     printf("\nStack is not Empty!\n\n");
-    // }
-
-    // // Check if stack is full.
-    // if(isFull(s1)){
-    //     printf("\nStack is Full!\n\n");
-    // }
-    // else{
-    //     printf("\nStack is not Full!\n\n");
-    // }
     return 0;
 }
-
-// Watched till 14.32
