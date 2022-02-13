@@ -28,6 +28,7 @@ int isFull(struct stack * ptr){
 }
 
 int peek(struct stack * ptr, int pos){
+    //Time complexity of Peek operation is O(1).
     if(ptr -> top - pos +1 <0){
         printf("The position entered is Invalid.\n\n");
         return -1;
@@ -38,6 +39,7 @@ int peek(struct stack * ptr, int pos){
 }
 
 void traverse(struct stack * ptr){
+    //Time complexity of Traversal operation is O(n).
     // for(int i = 0; i <= ptr -> top; i++){
     //     printf("%d\n", ptr -> arr[i]);
     // }
@@ -48,6 +50,7 @@ void traverse(struct stack * ptr){
 }
 
 void push(struct stack * ptr, int val){
+    //Time complexity of Push operation is O(1).
     if(isFull(ptr)){
         printf("Stack Overflow! Cannot push %d to the stack.\n\n", val);
     }
@@ -58,12 +61,23 @@ void push(struct stack * ptr, int val){
 }
 
 void pop(struct stack * ptr){
+    //Time complexity of Pop operation is O(1).
     if(isEmpty(ptr)){
         printf("Stack UnderFlow! Cannot pop from the stack.\n\n");
     }
     else{
         ptr -> top--;
     }
+}
+
+int stackTop(struct stack * ptr){
+    //Time complexity of stackTop operation is O(1).
+    return ptr -> arr[ptr -> top];
+}
+
+int stackBottom(struct stack * ptr){
+    //Time complexity of stackBottom operation is O(1).
+    return ptr -> arr[0];
 }
 
 int main(){
@@ -98,7 +112,7 @@ int main(){
     s1 -> top++;
 
     while(1){
-        printf("Stack operations.\nEnter 0 to Traverse the Stack.\nEnter 1 to Push an element.\nEnter 2 to Pop an element.\nEnter 3 to Peek the stack.\nEnter 4 to exit.\nEnter your choice: ");
+        printf("Stack operations.\nEnter 0 to Traverse the Stack.\nEnter 1 to Push an element.\nEnter 2 to Pop an element.\nEnter 3 to Peek the stack.\nEnter 4 to find top and bottom of stack.\nEnter 5 to exit.\nEnter your choice: ");
         scanf("%d",&choice);
         if(choice ==0){
             printf("\nTraversal\n\n");
@@ -127,6 +141,10 @@ int main(){
         }
 
         else if(choice == 4){
+            printf("The top and the bottom elewments of the stack sre %d and %d respectively.\n\n", stackTop(s1), stackBottom(s1));
+        }
+
+        else if(choice == 5){
             break;
         }
         else{
