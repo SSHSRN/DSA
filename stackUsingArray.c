@@ -27,10 +27,24 @@ int isFull(struct stack * ptr){
     }
 }
 
-void traverse(struct stack * ptr){
-    for(int i = 0; i <= ptr -> top; i++){
-        printf("%d\n", ptr -> arr[i]);
+int peek(struct stack * ptr, int pos){
+    if(ptr -> top - pos +1 <0){
+        printf("The position entered is Invalid.\n\n");
+        return -1;
     }
+    else{
+        return ptr -> arr[ptr -> top - pos +1];
+    }
+}
+
+void traverse(struct stack * ptr){
+    // for(int i = 0; i <= ptr -> top; i++){
+    //     printf("%d\n", ptr -> arr[i]);
+    // }
+    for(int i = 1; i <= ptr -> top +1; i++){
+        printf("%d\n", peek(ptr,i));
+    }
+    printf("\n");
 }
 
 void push(struct stack * ptr, int val){
@@ -53,7 +67,7 @@ void pop(struct stack * ptr){
 }
 
 int main(){
-    int choice, val;
+    int choice, val, pos;
     // struct stack s;
     // // Size of Stack is 50.
     // s.size = 50;
@@ -84,7 +98,7 @@ int main(){
     s1 -> top++;
 
     while(1){
-        printf("Stack operations.\nEnter 0 to Traverse the Stack.\nEnter 1 to Push an element.\nEnter 2 to Pop an element.\nEnter your choice: ");
+        printf("Stack operations.\nEnter 0 to Traverse the Stack.\nEnter 1 to Push an element.\nEnter 2 to Pop an element.\nEnter 3 to Peek the stack.\nEnter 4 to exit.\nEnter your choice: ");
         scanf("%d",&choice);
         if(choice ==0){
             printf("\nTraversal\n\n");
@@ -103,7 +117,16 @@ int main(){
             pop(s1);
             traverse(s1);
         }
+
         else if(choice == 3){
+            printf("\nPeek\n\nEnter the position to peek:");
+            scanf("%d", &pos);
+            // You can also traverse the whole stack by using a for loop in peek.
+            val = peek(s1, pos);
+            printf("The value at position %d is %d", pos, val);
+        }
+
+        else if(choice == 4){
             break;
         }
         else{
