@@ -45,16 +45,22 @@ void traverse(struct Node * p){
 }
 
 int peek(struct Node * top, int pos){
-    //Time complexity of Peek operation is O(1).
-    struct Node * p = top;
-    int i = 0;
-    while(i != (pos - 1)){
-        p = p -> next;
-        i+=1;
-    }
-    int val = p -> data;
-    return val;
+    //Time complexity of Peek operation is O(n).
+    // struct Node * p = top;
+    // int i = 0;
+    // while(i != (pos - 1)){
+    //     p = p -> next;
+    //     i+=1;
+    // }
+    // int val = p -> data;
+    // return val;
 
+    // Another approach:
+    struct Node * ptr = top;
+    for(int i=0; (i < pos - 1 && ptr != NULL); i++){
+        ptr = ptr -> next;
+    }
+    return ptr -> data;
 }
 
 struct Node * push(struct Node * top, int val){
