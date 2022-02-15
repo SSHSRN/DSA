@@ -137,7 +137,7 @@ int main(){
             scanf("%d", &pos);
             // You can also traverse the whole stack by using a for loop in peek.
             val = peek(s1, pos);
-            printf("The value at position %d is %d", pos, val);
+            printf("The value at position %d is %d\n\n", pos, val);
         }
 
         else if(choice == 4){
