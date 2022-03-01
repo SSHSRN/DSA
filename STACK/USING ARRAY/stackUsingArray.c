@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// Stacck works by LIFO (Last In First Out) principle...
+// Stack works by LIFO (Last In First Out) principle...
 
 struct stack{
     int size;
