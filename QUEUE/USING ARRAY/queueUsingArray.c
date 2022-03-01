@@ -79,6 +79,7 @@ int main(){
             dequeue(&q);
             traverse(q);
         }
+        
         else if(choice == 3){
             printf("\nFront and Rear\n\n");
             printf("The front and rear elements are: %d and %d respectively\n\n", q.arr[q.front+1],q.arr[q.rear]);
@@ -87,6 +88,7 @@ int main(){
         else if(choice == 4){
             break;
         }
+        
         else{
             printf("\nInvalid input\n\n");
         }
