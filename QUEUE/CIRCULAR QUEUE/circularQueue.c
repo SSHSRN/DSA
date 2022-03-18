@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// Stacck works by LIFO (Last In First Out) principle...
+// Queue works by FIFO (First In First Out) principle...
 
 struct cqueue{
     int size, front, rear;
