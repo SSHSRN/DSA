@@ -37,7 +37,7 @@ int binarySearch(int arr[], int size, int element){
 
 int main(){
     int arrsize, element, res, choice, arr[100];
-    printf("Searching an element in an array\nEnter 0 to perform Linear Search.\nEnter 1 to perform Binary Search.\nEnter your choce: ");
+    printf("Searching an element in an array\nEnter 0 to perform Linear Search.\nEnter 1 to perform Binary Search.\nEnter your choice: ");
     scanf("%d", &choice);
     if(choice == 0){
         printf("\nLinear Search\nEnter the array size (<100): ");
