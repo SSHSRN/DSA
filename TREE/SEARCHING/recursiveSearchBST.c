@@ -38,7 +38,7 @@ int isBST(struct node * root){
     }
 }
 
-struct node * search(struct node * root, int key){
+struct node * searchRecursive(struct node * root, int key){
     if(root == NULL){
         return NULL;
     }
@@ -66,7 +66,7 @@ int main(){
     p -> left = p1;
     p -> right = p2;
 
-    printf("Enter the element to search in the Binary Search Tree:");
+    printf("Enter the element to search in the Binary Search Tree: ");
     scanf("%d", &key);
 
     // printf("%d", isBST(p));
@@ -77,7 +77,7 @@ int main(){
         printf("The given Binary tree is not a Binary Search Tree.\n\n");
     }
 
-    struct node * n = search(p, key);
+    struct node * n = searchRecursive(p, key);
 
     if(n != NULL){
         printf("Element %d is present in the given Binary Search Tree.", n -> data);
